@@ -11,6 +11,8 @@
 #include "datagram.h"
 #include "oob.h"
 
+unsigned long serverchallenge = 0;
+unsigned long _ourchallenge = 0;
 
 OOB::OOB()
 {
@@ -65,8 +67,9 @@ bool OOB::ReceiveQueryPacketGetChallenge(
 	chan->connectstep = 3;
 	long magicnumber = recvdata.ReadLong();
 
-	unsigned long serverchallenge = recvdata.ReadLong();
+	serverchallenge = recvdata.ReadLong();
 	*ourchallenge = recvdata.ReadLong();
+	_ourchallenge = *ourchallenge;
 	unsigned long authprotocol = recvdata.ReadLong();
 
 
