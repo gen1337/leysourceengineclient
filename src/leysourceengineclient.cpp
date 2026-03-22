@@ -210,9 +210,9 @@ int dosendthinkloading()
 		printf("Sending clc_ClientInfo\n");
 		netchan.GetSendData()->WriteUBitLong(8, 6);
 		netchan.GetSendData()->WriteLong(netchan.m_iServerCount);
-		netchan.GetSendData()->WriteLong(-180706170);//clc_ClientInfo crc
-		netchan.GetSendData()->WriteOneBit(1);//ishltv
-		netchan.GetSendData()->WriteLong(1337);
+		netchan.GetSendData()->WriteLong(-180706170); // crc
+		netchan.GetSendData()->WriteOneBit(1);        // ishltv
+		netchan.GetSendData()->WriteLong(steam->GetSteamUser()->GetSteamID().ConvertToUint64()); // SteamID
 		netchan.GetSendData()->WriteUBitLong(0, 21);
 
 		datagram->Send(&netchan);
