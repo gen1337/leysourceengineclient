@@ -211,7 +211,7 @@ int dosendthinkloading()
 		netchan.GetSendData()->WriteUBitLong(8, 6);
 		netchan.GetSendData()->WriteLong(netchan.m_iServerCount);
 		netchan.GetSendData()->WriteLong(-180706170); // crc
-		netchan.GetSendData()->WriteOneBit(1);        // ishltv
+		netchan.GetSendData()->WriteOneBit(0);        // ishltv
 		netchan.GetSendData()->WriteLong(steam->GetSteamUser()->GetSteamID().ConvertToUint64()); // SteamID
 		netchan.GetSendData()->WriteUBitLong(0, 21);
 
