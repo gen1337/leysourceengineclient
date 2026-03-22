@@ -103,7 +103,7 @@ bool OOB::ReceiveQueryPacketGetChallenge(
 
 	writeconnect.WriteString(nickname); //nick
 	writeconnect.WriteString(password); // pass
-	writeconnect.WriteString("2025.12.10"); // game version
+	writeconnect.WriteString("2026.03.16"); // game version
 
 
 	unsigned char steamkey[STEAM_KEYSIZE];
