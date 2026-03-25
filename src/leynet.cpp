@@ -155,6 +155,16 @@ char* leynet_udp::Receive(int* msgsize, unsigned short* port, char* ip, char* bu
 	*msgsize = ret;
 	*port = ntohs(from.sin_port);
 
+	if (ret > 0) {
+		printf("HEX RECV [%d bytes] <- %s:%d\n", ret, ip, *port);
+		for (int i = 0; i < ret; i++) {
+			printf("%02x ", (unsigned char)buffer[i]);
+			if ((i + 1) % 16 == 0) printf("\n");
+		}
+		printf("\n\n");
+		fflush(stdout);
+	}
+	
 	return 0;
 }
 
