@@ -110,6 +110,14 @@ char* leynet_udp::SendTo(const char* ip, short port, const char* buffer, int len
 	add.sin_port = htons(port);
 
 
+	printf("HEX SEND [%d bytes] -> %s:%d\n", len, ip, port); //debug
+	for (int i = 0; i < len; i++) {
+	    printf("%02x ", (unsigned char)buf[i]);
+	    if ((i + 1) % 16 == 0) printf("\n");
+	}
+	printf("\n\n");
+	fflush(stdout);
+	
 	inet_pton(AF_INET, ip, &(add.sin_addr));
 
 	int ret = sendto(sock, buffer, len, 0, reinterpret_cast<SOCKADDR*>(&add), sizeof(add));
