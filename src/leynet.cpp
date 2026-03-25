@@ -112,7 +112,7 @@ char* leynet_udp::SendTo(const char* ip, short port, const char* buffer, int len
 
 	printf("HEX SEND [%d bytes] -> %s:%d\n", len, ip, port); //debug
 	for (int i = 0; i < len; i++) {
-	    printf("%02x ", (unsigned char)buf[i]);
+	    printf("%02x ", (unsigned char)buffer[i]);
 	    if ((i + 1) % 16 == 0) printf("\n");
 	}
 	printf("\n\n");
